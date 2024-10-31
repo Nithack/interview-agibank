@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+
+  client-service-api:
+    build:
+      context: ./client-service-api
+      dockerfile: Dockerfile
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    environment:
+      - POSTGRES_DB_URL=${POSTGRES_DB_URL}
+      - POSTGRES_DB_USERNAME=${POSTGRES_DB_USERNAME}
+      - POSTGRES_DB_PASSWORD=${POSTGRES_DB_PASSWORD}
+      - CLIENT_PORT=${CLIENT_PORT}
+    depends_on:
+      - postgres
+
+  insurance-service-api:
+    build:
+      context: ./insurance-service-api
+      dockerfile: Dockerfile
+    ports:
+      - "${INSURANCE_PORT}:${INSURANCE_PORT}"
+    environment:
+      - POSTGRES_DB_URL=${POSTGRES_DB_URL}
+      - POSTGRES_DB_USERNAME=${POSTGRES_DB_USERNAME}
+      - POSTGRES_DB_PASSWORD=${POSTGRES_DB_PASSWORD}
+      - CLIENT_SERVICE_URL=${CLIENT_SERVICE_URL}
+      - INSURANCE_PORT=${INSURANCE_PORT}
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: client_insurance
+      POSTGRES_USER: ${POSTGRES_DB_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD}
+    ports:
+      - "5432:5432"

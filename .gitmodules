@@ -1,0 +1,6 @@
+[submodule "insurance-service-api"]
+	path = insurance-service-api
+	url = https://github.com/Nithack/insurance-service-api
+[submodule "client-service-api"]
+	path = client-service-api
+	url = https://github.com/Nithack/client-service-api
