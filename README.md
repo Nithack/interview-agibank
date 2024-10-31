@@ -167,6 +167,15 @@ services:
 
 Antes de executar o Docker Compose, é necessário gerar os arquivos JAR que serão utilizados pelos Dockerfiles. Para facilitar esse processo, você pode utilizar um script que automatiza a geração dos artefatos.
 
+#### Baixar os modulos
+
+Necessario para baixar os repositorios dos serviços.
+
+```bash
+git submodule update --init --recursive
+```
+
+
 #### Dê permissão de execução ao script:
 
 ```bash
