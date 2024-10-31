@@ -68,7 +68,7 @@ O projeto está organizado em dois microserviços independentes, seguindo os pri
 
 5. **Consulta e Gerenciamento:**
    - O cliente pode consultar seus seguros contratados.
-   - Operações de atualização ou cancelamento podem ser realizadas conforme as regras de negócio.
+
 
 ## Configuração do Projeto
 
@@ -98,7 +98,7 @@ interview-agibank/
 
 #### Arquivo `.env`
 
-Existe um arquivo `.env` na raiz do projeto `interview-agibank` com o seguinte conteúdo:
+Crie um arquivo `.env` na raiz do projeto `interview-agibank` com o seguinte conteúdo:
 
 ```dotenv
 # Configurações do Banco de Dados PostgreSQL
@@ -188,7 +188,7 @@ Este script irá entrar em cada pasta de serviço, executar o Maven para gerar o
 Após gerar os artefatos, você pode iniciar os serviços com o Docker Compose:
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 Isso irá iniciar:
